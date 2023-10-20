@@ -1,0 +1,62 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="alfonso_escobar.list">
+      <field name="name">alfonsoEscobar list</field>
+      <field name="model">alfonso_escobar.task</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <!-- <field name="value"/>
+          <field name="value2"/> -->
+          <field name="description"/>
+          <field name="fecha"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="alfonso_escobar.action_window">
+      <field name="name">Agregar tarea</field>
+      <field name="res_model">alfonso_escobar.task</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="alfonso_escobar.action_server">
+      <field name="name">alfonsoEscobar server</field>
+      <field name="model_id" ref="model_alfonso_escobar_alfonso_escobar"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="alfonsoEscobar" id="alfonso_escobar.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="alfonso_escobar.menu_1" parent="alfonso_escobar.menu_root"/>
+    <menuitem name="Menu 2" id="alfonso_escobar.menu_2" parent="alfonso_escobar.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="alfonso_escobar.menu_1_list" parent="alfonso_escobar.menu_1"
+              action="alfonso_escobar.action_window"/>
+    <!-- <menuitem name="Server to list" id="alfonso_escobar" parent="alfonso_escobar.menu_2"
+              action="alfonso_escobar.action_server"/> -->
+
+  </data>
+</odoo>
